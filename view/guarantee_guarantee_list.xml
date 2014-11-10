@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tree string="Guarantee">
+    <field name="code"/>
+    <field name="party"/>
+    <field name="document"/>
+    <field name="type"/>
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="in_guarantee"/>
+</tree>

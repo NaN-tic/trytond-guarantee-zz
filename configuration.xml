@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="guarantee_configuration_view_form">
+            <field name="model">guarantee.configuration</field>
+            <field name="type">form</field>
+            <field name="name">configuration_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_guarantee_configuration_form">
+            <field name="name">Guarantee Configuration</field>
+            <field name="res_model">guarantee.configuration</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_guarantee_configuration_view1">
+            <field name="sequence" eval="1"/>
+            <field name="view" ref="guarantee_configuration_view_form"/>
+            <field name="act_window" ref="act_guarantee_configuration_form"/>
+        </record>
+        <menuitem parent="menu_guarantee_config"
+            action="act_guarantee_configuration_form"
+            id="menu_guarantee_configuration_form" icon="tryton-list"/>
+
+        <record model="ir.sequence.type" id="sequence_type_guarantee">
+            <field name="name">Guarantee</field>
+            <field name="code">guarantee.guarantee</field>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_guarantee_group_admin">
+            <field name="sequence_type" ref="sequence_type_guarantee"/>
+            <field name="group" ref="res.group_admin"/>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_guarantee_group_activity_admin">
+            <field name="sequence_type" ref="sequence_type_guarantee"/>
+            <field name="group" ref="group_guarantee_admin"/>
+        </record>
+
+        <record model="ir.sequence" id="sequence_guarantee">
+            <field name="name">Guarantee</field>
+            <field name="code">guarantee.guarantee</field>
+        </record>
+
+    </data>
+</tryton>

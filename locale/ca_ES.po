@@ -1,0 +1,295 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:account.invoice.line:"
+msgid "Line \"%s\" must have zero unit price as it is on guarantee"
+msgstr "La línia \"%s\" ha de tenir zero preu unitari perquè està en garantia."
+
+msgctxt "error:guarantee.guarantee:"
+msgid ""
+"No guarantee sequence has been defined. Please define one in guarantee "
+"configuration"
+msgstr ""
+"No s'ha definit cap seqüencia de garanties. Si us plau definiu-n'hi una a la"
+" configuració."
+
+msgctxt "error:sale.line:"
+msgid "Line \"%s\" must have zero unit price as it is on guarantee"
+msgstr "La línia \"%s\" ha de tenir zero preu unitari perquè està en garantia."
+
+msgctxt "field:account.invoice.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "field:account.invoice.line,line_in_guarantee:"
+msgid "In guarantee"
+msgstr "En garantia"
+
+msgctxt "field:guarantee.configuration,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.configuration,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.configuration,guarantee_sequence:"
+msgid "Guarante Sequence"
+msgstr "Seqüencia garantia"
+
+msgctxt "field:guarantee.configuration,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.configuration,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.configuration,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.configuration,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.configuration.company,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:guarantee.configuration.company,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.configuration.company,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.configuration.company,guarantee_sequence:"
+msgid "Guarante Sequence"
+msgstr "Seqüencia garantia"
+
+msgctxt "field:guarantee.configuration.company,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.configuration.company,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.configuration.company,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.configuration.company,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.guarantee,code:"
+msgid "Code"
+msgstr "Codi"
+
+msgctxt "field:guarantee.guarantee,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.guarantee,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.guarantee,document:"
+msgid "Document"
+msgstr "Document"
+
+msgctxt "field:guarantee.guarantee,end_date:"
+msgid "End Date"
+msgstr "Data finalització"
+
+msgctxt "field:guarantee.guarantee,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.guarantee,in_guarantee:"
+msgid "In Guarantee"
+msgstr "En garantia"
+
+msgctxt "field:guarantee.guarantee,party:"
+msgid "Party"
+msgstr "Tercer"
+
+msgctxt "field:guarantee.guarantee,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.guarantee,start_date:"
+msgid "Start Date"
+msgstr "Data inicial"
+
+msgctxt "field:guarantee.guarantee,type:"
+msgid "Type"
+msgstr "Tipus"
+
+msgctxt "field:guarantee.guarantee,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.guarantee,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.type,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.type,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.type,duration:"
+msgid "Duration"
+msgstr "Duració"
+
+msgctxt "field:guarantee.type,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.type,includes_consumables:"
+msgid "Include Consumables"
+msgstr "Incloure consumibles"
+
+msgctxt "field:guarantee.type,includes_goods:"
+msgid "Include Goods"
+msgstr "Incloure béns"
+
+msgctxt "field:guarantee.type,includes_services:"
+msgid "Include Services"
+msgstr "Incloure serveis"
+
+msgctxt "field:guarantee.type,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.type,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.type,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.type,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:product.product,guarantee_type:"
+msgid "Guarante Type"
+msgstr "Tipus de garantia"
+
+msgctxt "field:sale.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "field:sale.line,line_in_guarantee:"
+msgid "In guarantee"
+msgstr "En garantia"
+
+msgctxt "help:guarantee.type,duration:"
+msgid "The number of months that the product is in guarantee"
+msgstr "El nombre de dies que el producte esta en garantía."
+
+msgctxt "help:guarantee.type,includes_consumables:"
+msgid "If marked this waranty type will include consumable products"
+msgstr ""
+"Si es marca aquest tipus de garantia inclourà els productes de tipus "
+"consumible."
+
+msgctxt "help:guarantee.type,includes_goods:"
+msgid "If marked this waranty type will include goods products"
+msgstr ""
+"Si es marca aquest tipus de garantia inclourà els productes de tipus béns."
+
+msgctxt "help:guarantee.type,includes_services:"
+msgid "If marked this waranty type will include service products"
+msgstr ""
+"Si es marca aquest tipus de garantia inclourà els productes de tipus servei."
+
+msgctxt "model:guarantee.configuration,name:"
+msgid "Guarantee Configuration"
+msgstr "Configuració de garantia"
+
+msgctxt "model:guarantee.configuration.company,name:"
+msgid "Guarantee Configuration per Company"
+msgstr "Configuració de garantia per empresa"
+
+msgctxt "model:guarantee.guarantee,name:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:guarantee.type,name:"
+msgid "Guarantee Type"
+msgstr "Tipus de garantia"
+
+msgctxt "model:ir.action,name:act_guarantee_configuration_form"
+msgid "Guarantee Configuration"
+msgstr "Configuració de garantia"
+
+msgctxt "model:ir.action,name:act_guarantee_guarantee"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:ir.action,name:act_guarantee_type"
+msgid "Guarantee Type"
+msgstr "Tipus de garantia"
+
+msgctxt "model:ir.sequence,name:sequence_guarantee"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_guarantee"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_config"
+msgid "Configuration"
+msgstr "Configuració"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_configuration_form"
+msgid "Guarantee Configuration"
+msgstr "Configuració de garantia"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_guarantee"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_type"
+msgid "Guarantee Type"
+msgstr "Tipus de garantia"
+
+msgctxt "model:res.group,name:group_guarantee"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "model:res.group,name:group_guarantee_admin"
+msgid "Guarantee Administration"
+msgstr "Administració de garantia"
+
+msgctxt "view:guarantee.configuration:"
+msgid "Guarantee Configuration"
+msgstr "Configuració de garantia"
+
+msgctxt "view:guarantee.guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "view:guarantee.type:"
+msgid "Guarantee Type"
+msgstr "Tipus de garantia"
+
+msgctxt "view:guarantee.type:"
+msgid "Guarantee Types"
+msgstr "Tipus de garantia"

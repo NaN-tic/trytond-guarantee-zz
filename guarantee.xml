@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_guarantee_admin">
+            <field name="name">Guarantee Administration</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_guarantee_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_guarantee_admin"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_guarantee_admin">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_guarantee_admin"/>
+        </record>
+        <record model="res.group" id="group_guarantee">
+            <field name="name">Guarantee</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_guarantee">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_guarantee"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_guarantee">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_guarantee"/>
+        </record>
+        <record model="ir.ui.view" id="guarantee_guarantee_view_form">
+            <field name="model">guarantee.guarantee</field>
+            <field name="type">form</field>
+            <field name="name">guarantee_guarantee_form</field>
+        </record>
+        <record model="ir.ui.view" id="guarantee_guarantee_view_list">
+            <field name="model">guarantee.guarantee</field>
+            <field name="type">tree</field>
+            <field name="name">guarantee_guarantee_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_guarantee_guarantee">
+            <field name="name">Guarantee</field>
+            <field name="res_model">guarantee.guarantee</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_guarantee_guarantee_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="guarantee_guarantee_view_list"/>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_guarantee_guarantee_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="guarantee_guarantee_view_form"/>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
+        <record model="ir.model.access" id="access_guarantee_guarantee">
+            <field name="model" search="[('model', '=', 'guarantee.guarantee')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_guarantee_guarantee_group">
+            <field name="model" search="[('model', '=', 'guarantee.guarantee')]"/>
+            <field name="group" ref="group_guarantee"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_guarantee_guarantee_admin">
+            <field name="model" search="[('model', '=', 'guarantee.guarantee')]"/>
+            <field name="group" ref="group_guarantee_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.ui.view" id="guarantee_type_view_form">
+            <field name="model">guarantee.type</field>
+            <field name="type">form</field>
+            <field name="name">guarantee_type_form</field>
+        </record>
+        <record model="ir.ui.view" id="guarantee_type_view_list">
+            <field name="model">guarantee.type</field>
+            <field name="type">tree</field>
+            <field name="name">guarantee_type_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_guarantee_type">
+            <field name="name">Guarantee Type</field>
+            <field name="res_model">guarantee.type</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_guarantee_type_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="guarantee_type_view_list"/>
+            <field name="act_window" ref="act_guarantee_type"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_guarantee_type_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="guarantee_type_view_form"/>
+            <field name="act_window" ref="act_guarantee_type"/>
+        </record>
+        <record model="ir.model.access" id="access_guarantee_type">
+            <field name="model" search="[('model', '=', 'guarantee.type')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_guarantee_type_admin">
+            <field name="model" search="[('model', '=', 'guarantee.type')]"/>
+            <field name="group" ref="group_guarantee_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.ui.view" id="product_product_view_form">
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="product.product_view_form"/>
+            <field name="name">product_product_form</field>
+        </record>
+        <record model="ir.ui.view" id="sale_line_view_form">
+            <field name="model">sale.line</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="sale.sale_line_view_form"/>
+            <field name="name">sale_line_form</field>
+        </record>
+        <record model="ir.ui.view" id="invoice_line_view_form">
+            <field name="model">account.invoice.line</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="account_invoice.invoice_line_view_form"/>
+            <field name="name">invoice_line_form</field>
+        </record>
+        <!-- Menus -->
+        <menuitem id="menu_guarantee" name="Guarantee"/>
+
+          <record model="ir.ui.menu-res.group" id="menu_guarantee_group_guarantee">
+            <field name="menu" ref="menu_guarantee"/>
+            <field name="group" ref="group_guarantee"/>
+          </record>
+
+          <record model="ir.ui.menu-res.group" id="menu_guarantee_group_guarantee_admin">
+            <field name="menu" ref="menu_guarantee"/>
+            <field name="group" ref="group_guarantee_admin"/>
+          </record>
+
+          <menuitem id="menu_guarantee_config" name="Configuration"
+              parent="menu_guarantee" sequence="0" />
+
+          <record model="ir.ui.menu-res.group"
+              id="menu_guarantee_config_group_guarantee_admin">
+            <field name="menu" ref="menu_guarantee_config"/>
+            <field name="group" ref="group_guarantee_admin"/>
+          </record>
+
+
+          <menuitem action="act_guarantee_guarantee" sequence="20"
+              id="menu_guarantee_guarantee" parent="menu_guarantee"/>
+          <menuitem action="act_guarantee_type" id="menu_guarantee_type"
+              parent="menu_guarantee_config" sequence="20"/>
+    </data>
+</tryton>

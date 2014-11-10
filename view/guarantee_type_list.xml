@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tree string="Guarantee Types">
+    <field name="name"/>
+    <field name="duration"/>
+    <field name="includes_consumables"/>
+    <field name="includes_goods"/>
+    <field name="includes_services"/>
+</tree>

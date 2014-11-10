@@ -1,0 +1,301 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:account.invoice.line:"
+msgid "Line \"%s\" must have zero unit price as it is on guarantee"
+msgstr ""
+"La linea \"%s\" debe tener cero cómo importe unitario porqué esta en "
+"garantía."
+
+msgctxt "error:guarantee.guarantee:"
+msgid ""
+"No guarantee sequence has been defined. Please define one in guarantee "
+"configuration"
+msgstr ""
+"No se ha definido ninguna secuencia de garantias. Por favor, defina una en "
+"la configuración."
+
+msgctxt "error:sale.line:"
+msgid "Line \"%s\" must have zero unit price as it is on guarantee"
+msgstr ""
+"La linea \"%s\" debe tener cero cómo importe unitario porqué esta en "
+"garantía."
+
+msgctxt "field:account.invoice.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "field:account.invoice.line,line_in_guarantee:"
+msgid "In guarantee"
+msgstr "En garantía"
+
+msgctxt "field:guarantee.configuration,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:guarantee.configuration,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:guarantee.configuration,guarantee_sequence:"
+msgid "Guarante Sequence"
+msgstr "Secuencia de garantía"
+
+msgctxt "field:guarantee.configuration,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.configuration,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:guarantee.configuration,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:guarantee.configuration,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:guarantee.configuration.company,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:guarantee.configuration.company,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:guarantee.configuration.company,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:guarantee.configuration.company,guarantee_sequence:"
+msgid "Guarante Sequence"
+msgstr "Secuencia de garantía"
+
+msgctxt "field:guarantee.configuration.company,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.configuration.company,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:guarantee.configuration.company,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:guarantee.configuration.company,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:guarantee.guarantee,code:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:guarantee.guarantee,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:guarantee.guarantee,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:guarantee.guarantee,document:"
+msgid "Document"
+msgstr "Documento"
+
+msgctxt "field:guarantee.guarantee,end_date:"
+msgid "End Date"
+msgstr "Fecha finalización"
+
+msgctxt "field:guarantee.guarantee,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.guarantee,in_guarantee:"
+msgid "In Guarantee"
+msgstr "En garantía"
+
+msgctxt "field:guarantee.guarantee,party:"
+msgid "Party"
+msgstr "Tercero"
+
+msgctxt "field:guarantee.guarantee,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:guarantee.guarantee,start_date:"
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+msgctxt "field:guarantee.guarantee,type:"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "field:guarantee.guarantee,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:guarantee.guarantee,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:guarantee.type,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:guarantee.type,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:guarantee.type,duration:"
+msgid "Duration"
+msgstr "Duración"
+
+msgctxt "field:guarantee.type,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.type,includes_consumables:"
+msgid "Include Consumables"
+msgstr "Incluir consumibles"
+
+msgctxt "field:guarantee.type,includes_goods:"
+msgid "Include Goods"
+msgstr "Incluir bienes"
+
+msgctxt "field:guarantee.type,includes_services:"
+msgid "Include Services"
+msgstr "Incluir servicios"
+
+msgctxt "field:guarantee.type,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:guarantee.type,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:guarantee.type,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:guarantee.type,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.product,guarantee_type:"
+msgid "Guarante Type"
+msgstr "Tipo de garantía"
+
+msgctxt "field:sale.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "field:sale.line,line_in_guarantee:"
+msgid "In guarantee"
+msgstr "En garantía"
+
+msgctxt "help:guarantee.type,duration:"
+msgid "The number of months that the product is in guarantee"
+msgstr "El número de meses que este producto esta en garantía."
+
+msgctxt "help:guarantee.type,includes_consumables:"
+msgid "If marked this waranty type will include consumable products"
+msgstr ""
+"Si se marca se incluirán los productos de tipo consumible en este tipo de "
+"garantía."
+
+msgctxt "help:guarantee.type,includes_goods:"
+msgid "If marked this waranty type will include goods products"
+msgstr ""
+"Si se marca se incluirán los productos de tipo bien en este tipo de "
+"garantía."
+
+msgctxt "help:guarantee.type,includes_services:"
+msgid "If marked this waranty type will include service products"
+msgstr ""
+"Si se marca se incluirán los productos de tipo servicio en este tipo de "
+"garantía."
+
+msgctxt "model:guarantee.configuration,name:"
+msgid "Guarantee Configuration"
+msgstr "Configuración de garantía"
+
+msgctxt "model:guarantee.configuration.company,name:"
+msgid "Guarantee Configuration per Company"
+msgstr "Configuración de garantía por empresa"
+
+msgctxt "model:guarantee.guarantee,name:"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:guarantee.type,name:"
+msgid "Guarantee Type"
+msgstr "Tipo de garantía"
+
+msgctxt "model:ir.action,name:act_guarantee_configuration_form"
+msgid "Guarantee Configuration"
+msgstr "Configuración de garantía"
+
+msgctxt "model:ir.action,name:act_guarantee_guarantee"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:ir.action,name:act_guarantee_type"
+msgid "Guarantee Type"
+msgstr "Tipo de garantía"
+
+msgctxt "model:ir.sequence,name:sequence_guarantee"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_guarantee"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_config"
+msgid "Configuration"
+msgstr "Configuración"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_configuration_form"
+msgid "Guarantee Configuration"
+msgstr "Configuración de garantía"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_guarantee"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:ir.ui.menu,name:menu_guarantee_type"
+msgid "Guarantee Type"
+msgstr "Tipo de garantía"
+
+msgctxt "model:res.group,name:group_guarantee"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "model:res.group,name:group_guarantee_admin"
+msgid "Guarantee Administration"
+msgstr "Administración de garantía"
+
+msgctxt "view:guarantee.configuration:"
+msgid "Guarantee Configuration"
+msgstr "Configuración de garantía"
+
+msgctxt "view:guarantee.guarantee:"
+msgid "Guarantee"
+msgstr "Garantía"
+
+msgctxt "view:guarantee.type:"
+msgid "Guarantee Type"
+msgstr "Tipo de garantía"
+
+msgctxt "view:guarantee.type:"
+msgid "Guarantee Types"
+msgstr "Tipos de garantía"
