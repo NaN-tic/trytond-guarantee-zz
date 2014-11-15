@@ -57,8 +57,17 @@ class Guarantee(ModelSQL, ModelView):
     end_date = fields.Date('End Date', required=True)
     in_guarantee = fields.Function(fields.Boolean('In Guarantee'),
         'get_in_guarantee')
-    fields.One2Many('sale.line', 'guarantee', 'Sale Lines')
-    fields.One2Many('account.invoice.line', 'guarantee', 'Invoice Lines')
+
+    sale_line = fields.Many2One('sale.line', 'Sale Line', required=True,
+        select=True)
+
+    invoice_line = fields.Many2One('account.invoice.line', 'Invoice Line',
+        select=True)
+
+    guarantee_sale_lines = fields.One2Many('sale.line', 'guarantee',
+        'Sale Lines in Guarantee')
+    guarantee_invoice_lines = fields.One2Many('account.invoice.line',
+        'guarantee', 'Invoice Lines in Guarantee')
 
     @classmethod
     def __setup__(cls):
