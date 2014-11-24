@@ -48,6 +48,36 @@
             <field name="view" ref="guarantee_guarantee_view_form"/>
             <field name="act_window" ref="act_guarantee_guarantee"/>
         </record>
+        <record model="ir.action.act_window.domain" id="act_guarantee_guarantee_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_guarantee_guarantee_domain_active">
+            <field name="name">Active</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('state', '=', 'active')]</field>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_guarantee_guarantee_domain_hold">
+            <field name="name">Finished</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain">[('state', '=', 'finish')]</field>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_guarantee_guarantee_domain_cancel">
+            <field name="name">Canceled</field>
+            <field name="sequence" eval="40"/>
+            <field name="domain">[('state', '=', 'cancel')]</field>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_guarantee_guarantee_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="act_guarantee_guarantee"/>
+        </record>
         <record model="ir.model.access" id="access_guarantee_guarantee">
             <field name="model" search="[('model', '=', 'guarantee.guarantee')]"/>
             <field name="perm_read" eval="True"/>

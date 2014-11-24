@@ -1,7 +1,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from dateutil.relativedelta import relativedelta
-from trytond.model import ModelSQL, ModelView, fields
+from trytond.model import Workflow, ModelSQL, ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
@@ -43,7 +43,7 @@ class Product:
     guarantee_type = fields.Many2One('guarantee.type', 'Guarante Type')
 
 
-class Guarantee(ModelSQL, ModelView):
+class Guarantee(Workflow, ModelSQL, ModelView):
     'Guarantee'
     __name__ = 'guarantee.guarantee'
     _rec_name = 'code'
@@ -57,17 +57,19 @@ class Guarantee(ModelSQL, ModelView):
     end_date = fields.Date('End Date', required=True)
     in_guarantee = fields.Function(fields.Boolean('In Guarantee'),
         'get_in_guarantee')
-
-    sale_line = fields.Many2One('sale.line', 'Sale Line', required=True,
-        select=True)
-
+    sale_line = fields.Many2One('sale.line', 'Sale Line', select=True)
     invoice_line = fields.Many2One('account.invoice.line', 'Invoice Line',
         select=True)
-
     guarantee_sale_lines = fields.One2Many('sale.line', 'guarantee',
         'Sale Lines in Guarantee')
     guarantee_invoice_lines = fields.One2Many('account.invoice.line',
         'guarantee', 'Invoice Lines in Guarantee')
+    state = fields.Selection([
+            ('draft', 'Draft'),
+            ('active', 'Active'),
+            ('finished', 'Finished'),
+            ('cancel', 'Canceled'),
+        ], 'State', readonly=True, required=True)
 
     @classmethod
     def __setup__(cls):
@@ -76,6 +78,31 @@ class Guarantee(ModelSQL, ModelView):
                 'no_guarante_sequence': ('No guarantee sequence has been '
                     'defined. Please define one in guarantee configuration')
                 })
+        cls._transitions |= set((
+            ('draft', 'cancel'),
+            ('draft', 'active'),
+            ('active', 'cancel'),
+            ('active', 'finished'),
+            ('cancel', 'draft'),
+        ))
+        cls._buttons.update({
+            'cancel': {
+                'invisible': ~Eval('state').in_(['active', 'draft']),
+                },
+            'draft': {
+                'invisible': Eval('state') != 'cancel',
+                },
+            'active': {
+                'invisible': Eval('state') != 'draft',
+                },
+            'finish': {
+                'invisible': Eval('state') != 'active',
+                },
+        })
+
+    @staticmethod
+    def default_state():
+        return 'draft'
 
     @classmethod
     def _get_origin(cls):
@@ -113,6 +140,30 @@ class Guarantee(ModelSQL, ModelView):
         if not self.applies_for_date(date):
             return False
         return self.type.applies_for_product(product)
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('draft')
+    def draft(cls, guarantees):
+        pass
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('active')
+    def active(cls, guarantees):
+        pass
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('finished')
+    def finish(cls, guarantees):
+        pass
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('cancel')
+    def cancel(cls, guarantees):
+        pass
 
     @classmethod
     def create(cls, vlist):
