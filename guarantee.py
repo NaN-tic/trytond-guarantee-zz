@@ -6,7 +6,8 @@ from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
 
-__all__ = ['GuaranteeType', 'Product', 'Guarantee', 'SaleLine', 'InvoiceLine']
+__all__ = ['GuaranteeType', 'Product', 'Guarantee', 'Sale', 'SaleLine',
+    'InvoiceLine']
 __metaclass__ = PoolMeta
 
 
@@ -180,6 +181,24 @@ class Guarantee(Workflow, ModelSQL, ModelView):
         return super(Guarantee, cls).create(vlist)
 
 
+class Sale:
+    __name__ = 'sale.sale'
+
+    @classmethod
+    def confirm(cls, sales):
+        pool = Pool()
+        Guarantee = pool.get('guarantee.guarantee')
+        super(Sale, cls).confirm(sales)
+        to_create = []
+        for sale in sales:
+            for line in sale.lines:
+                    guarantee = line.get_guarantee()
+                    if guarantee:
+                        to_create.append(guarantee._save_values)
+        if to_create:
+            Guarantee.create(to_create)
+
+
 class SaleLine:
     __name__ = 'sale.line'
     guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
@@ -250,6 +269,23 @@ class SaleLine:
         for line in lines:
             line.guarantee = self.guarantee
         return lines
+
+    def get_guarantee(self):
+        pool = Pool()
+        Date = pool.get('ir.date')
+        Guarantee = pool.get('guarantee.guarantee')
+        if not self.product or not self.product.guarantee_type:
+            return
+        guarantee = Guarantee()
+        guarantee.party = self.sale.party
+        guarantee.document = str(self.product)
+        guarantee.type = self.product.guarantee_type
+        today = Date.today()
+        guarantee.start_date = self.sale.sale_date or today
+        guarantee.end_date = guarantee.on_change_with_end_date()
+        guarantee.sale_line = self
+        guarantee.state = 'draft'
+        return guarantee
 
 
 class InvoiceLine:
