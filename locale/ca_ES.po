@@ -200,7 +200,7 @@ msgstr "En garantia"
 
 msgctxt "help:guarantee.type,duration:"
 msgid "The number of months that the product is in guarantee"
-msgstr "El nombre de dies que el producte esta en garantía."
+msgstr "El nombre de mesos que el producte esta en garantia."
 
 msgctxt "help:guarantee.type,includes_consumables:"
 msgid "If marked this waranty type will include consumable products"
