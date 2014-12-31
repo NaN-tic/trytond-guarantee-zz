@@ -32,7 +32,7 @@ msgstr "Data de creació"
 
 msgctxt "field:guarantee.configuration,create_uid:"
 msgid "Create User"
-msgstr "Usuari de creació"
+msgstr "Usuari creació"
 
 msgctxt "field:guarantee.configuration,guarantee_sequence:"
 msgid "Guarante Sequence"
@@ -64,7 +64,7 @@ msgstr "Data de creació"
 
 msgctxt "field:guarantee.configuration.company,create_uid:"
 msgid "Create User"
-msgstr "Usuari de creació"
+msgstr "Usuari creació"
 
 msgctxt "field:guarantee.configuration.company,guarantee_sequence:"
 msgid "Guarante Sequence"
@@ -96,7 +96,7 @@ msgstr "Data de creació"
 
 msgctxt "field:guarantee.guarantee,create_uid:"
 msgid "Create User"
-msgstr "Usuari de creació"
+msgstr "Usuari creació"
 
 msgctxt "field:guarantee.guarantee,document:"
 msgid "Document"
@@ -106,6 +106,14 @@ msgctxt "field:guarantee.guarantee,end_date:"
 msgid "End Date"
 msgstr "Data finalització"
 
+msgctxt "field:guarantee.guarantee,guarantee_invoice_lines:"
+msgid "Invoice Lines in Guarantee"
+msgstr "Línies de factura en garantia"
+
+msgctxt "field:guarantee.guarantee,guarantee_sale_lines:"
+msgid "Sale Lines in Guarantee"
+msgstr "Línie de venda en garantia"
+
 msgctxt "field:guarantee.guarantee,id:"
 msgid "ID"
 msgstr "Identificador"
@@ -114,6 +122,14 @@ msgctxt "field:guarantee.guarantee,in_guarantee:"
 msgid "In Guarantee"
 msgstr "En garantia"
 
+msgctxt "field:guarantee.guarantee,invoice_line:"
+msgid "Invoice Line"
+msgstr "Línia de factura"
+
+msgctxt "field:guarantee.guarantee,notes:"
+msgid "Notes"
+msgstr "Notes"
+
 msgctxt "field:guarantee.guarantee,party:"
 msgid "Party"
 msgstr "Tercer"
@@ -121,6 +137,10 @@ msgstr "Tercer"
 msgctxt "field:guarantee.guarantee,rec_name:"
 msgid "Name"
 msgstr "Nom"
+
+msgctxt "field:guarantee.guarantee,sale_line:"
+msgid "Sale Line"
+msgstr "Línia de venta"
 
 msgctxt "field:guarantee.guarantee,start_date:"
 msgid "Start Date"
@@ -148,7 +168,7 @@ msgstr "Data de creació"
 
 msgctxt "field:guarantee.type,create_uid:"
 msgid "Create User"
-msgstr "Usuari de creació"
+msgstr "Usuari creació"
 
 msgctxt "field:guarantee.type,duration:"
 msgid "Duration"

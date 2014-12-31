@@ -65,6 +65,7 @@ class Guarantee(Workflow, ModelSQL, ModelView):
         'Sale Lines in Guarantee')
     guarantee_invoice_lines = fields.One2Many('account.invoice.line',
         'guarantee', 'Invoice Lines in Guarantee')
+    notes = fields.Text('Notes')
     state = fields.Selection([
             ('draft', 'Draft'),
             ('active', 'Active'),
@@ -252,6 +253,10 @@ class SaleLine:
         if self.on_change_with_line_in_guarantee():
             changes.update({'unit_price': 0, 'gross_unit_price': 0})
         return changes
+
+    @fields.depends(methods=['line_in_guarantee'])
+    def on_change_with_amount(self):
+        return super(SaleLine, self).on_change_with_amount()
 
     @classmethod
     def validate(cls, lines):

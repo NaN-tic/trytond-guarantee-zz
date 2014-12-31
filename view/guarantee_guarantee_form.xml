@@ -14,14 +14,25 @@
     <field name="sale_line"/>
     <label name="invoice_line"/>
     <field name="invoice_line"/>
-    <label name="start_date"/>
-    <field name="start_date"/>
-    <label name="end_date"/>
-    <field name="end_date"/>
-    <label name="in_guarantee"/>
-    <field name="in_guarantee"/>
-    <field name="guarantee_sale_lines" colspan="4"/>
-    <field name="guarantee_invoice_lines" colspan="4"/>
+    <group id="dates" colspan="4" col="6">
+        <label name="start_date"/>
+        <field name="start_date"/>
+        <label name="end_date"/>
+        <field name="end_date"/>
+        <label name="in_guarantee"/>
+        <field name="in_guarantee"/>
+    </group>
+    <notebook colspan="4">
+        <page name="guarantee_sale_lines">
+            <field name="guarantee_sale_lines" colspan="4"/>
+        </page>
+        <page name="guarantee_invoice_lines">
+            <field name="guarantee_invoice_lines" colspan="4"/>
+        </page>
+        <page name="notes">
+            <field name="notes" colspan="4"/>
+        </page>
+    </notebook>
     <group col="4" colspan="4" id="contract_buttons">
         <label name="state" xalign="1.0" xexpand="1"/>
         <field name="state" xalign="1.0" xexpand="0"/>
