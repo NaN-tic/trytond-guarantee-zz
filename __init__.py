@@ -12,6 +12,8 @@ def register():
         GuaranteeType,
         Product,
         Guarantee,
+        GuaranteeSaleLine,
+        GuaranteeInvoiceLine,
         Sale,
         SaleLine,
         InvoiceLine,

@@ -122,9 +122,9 @@ msgctxt "field:guarantee.guarantee,in_guarantee:"
 msgid "In Guarantee"
 msgstr "En garantia"
 
-msgctxt "field:guarantee.guarantee,invoice_line:"
-msgid "Invoice Line"
-msgstr "Línia de factura"
+msgctxt "field:guarantee.guarantee,invoice_lines:"
+msgid "Invoice Lines"
+msgstr "Línies de factura"
 
 msgctxt "field:guarantee.guarantee,notes:"
 msgid "Notes"
@@ -138,9 +138,9 @@ msgctxt "field:guarantee.guarantee,rec_name:"
 msgid "Name"
 msgstr "Nom"
 
-msgctxt "field:guarantee.guarantee,sale_line:"
-msgid "Sale Line"
-msgstr "Línia de venta"
+msgctxt "field:guarantee.guarantee,sale_lines:"
+msgid "Sale Lines"
+msgstr "Línies de venda"
 
 msgctxt "field:guarantee.guarantee,start_date:"
 msgid "Start Date"
@@ -159,6 +159,134 @@ msgid "Write Date"
 msgstr "Data modificación"
 
 msgctxt "field:guarantee.guarantee,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,invoice_line:"
+msgid "Invoice Line"
+msgstr "Línia de factura"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.guarantee-sale.line,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.guarantee-sale.line,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.guarantee-sale.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "field:guarantee.guarantee-sale.line,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.guarantee-sale.line,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.guarantee-sale.line,sale_line:"
+msgid "Sale Line"
+msgstr "Línia de venta"
+
+msgctxt "field:guarantee.guarantee-sale.line,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.guarantee-sale.line,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,invoice_line:"
+msgid "Invoice Line"
+msgstr "Línia de factura"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.guarantee-account.invoice.line,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.guarantee-sale.line,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:guarantee.guarantee-sale.line,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:guarantee.guarantee-sale.line,guarantee:"
+msgid "Guarantee"
+msgstr "Garantia"
+
+msgctxt "field:guarantee.guarantee-sale.line,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:guarantee.guarantee-sale.line,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:guarantee.guarantee-sale.line,sale_line:"
+msgid "Sale Line"
+msgstr "Línia de venta"
+
+msgctxt "field:guarantee.guarantee-sale.line,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:guarantee.guarantee-sale.line,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
 
@@ -249,6 +377,22 @@ msgstr "Configuració de garantia per empresa"
 msgctxt "model:guarantee.guarantee,name:"
 msgid "Guarantee"
 msgstr "Garantia"
+
+msgctxt "model:guarantee.guarantee-account.invoice.line,name:"
+msgid "Guarantee - Invoice Line"
+msgstr "Garantia - Línia de factura"
+
+msgctxt "model:guarantee.guarantee-sale.line,name:"
+msgid "Guarantee - Sale Line"
+msgstr "Garantia - Línia de venda"
+
+msgctxt "model:guarantee.guarantee-account.invoice.line,name:"
+msgid "Guarantee - Invoice Line"
+msgstr "Garantia - Línia de factura"
+
+msgctxt "model:guarantee.guarantee-sale.line,name:"
+msgid "Guarantee - Sale Line"
+msgstr "Garantia - Línia de venda"
 
 msgctxt "model:guarantee.type,name:"
 msgid "Guarantee Type"

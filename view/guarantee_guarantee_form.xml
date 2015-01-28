@@ -10,10 +10,6 @@
     <field name="document"/>
     <label name="type"/>
     <field name="type"/>
-    <label name="sale_line"/>
-    <field name="sale_line"/>
-    <label name="invoice_line"/>
-    <field name="invoice_line"/>
     <group id="dates" colspan="4" col="6">
         <label name="start_date"/>
         <field name="start_date"/>
@@ -23,11 +19,13 @@
         <field name="in_guarantee"/>
     </group>
     <notebook colspan="4">
-        <page name="guarantee_sale_lines">
-            <field name="guarantee_sale_lines" colspan="4"/>
+        <page name="sale_lines" col="2">
+            <field name="sale_lines"/>
+            <field name="guarantee_sale_lines"/>
         </page>
-        <page name="guarantee_invoice_lines">
-            <field name="guarantee_invoice_lines" colspan="4"/>
+        <page name="invoice_lines" col="2">
+            <field name="invoice_lines"/>
+            <field name="guarantee_invoice_lines"/>
         </page>
         <page name="notes">
             <field name="notes" colspan="4"/>

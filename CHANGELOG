@@ -1,3 +1,4 @@
+* Allow to relate a guarantee with multiple sale lines and invoice lines
 * Create a draft guarantee when selling a product with guarantee type
 * Add workflow on guarantee
 

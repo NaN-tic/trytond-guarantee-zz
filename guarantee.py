@@ -6,8 +6,8 @@ from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
 
-__all__ = ['GuaranteeType', 'Product', 'Guarantee', 'Sale', 'SaleLine',
-    'InvoiceLine']
+__all__ = ['GuaranteeType', 'Product', 'GuaranteeSaleLine',
+    'GuaranteeInvoiceLine', 'Guarantee', 'Sale', 'SaleLine', 'InvoiceLine']
 __metaclass__ = PoolMeta
 
 
@@ -44,6 +44,42 @@ class Product:
     guarantee_type = fields.Many2One('guarantee.type', 'Guarante Type')
 
 
+class GuaranteeSaleLine(ModelSQL):
+    'Guarantee - Sale Line'
+    __name__ = 'guarantee.guarantee-sale.line'
+    guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
+        required=True, select=True, ondelete='CASCADE')
+    sale_line = fields.Many2One('sale.line', 'Sale Line',
+        required=True, select=True, ondelete='CASCADE')
+
+
+class GuaranteeInvoiceLine(ModelSQL):
+    'Guarantee - Invoice Line'
+    __name__ = 'guarantee.guarantee-account.invoice.line'
+    guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
+        required=True, select=True, ondelete='CASCADE')
+    invoice_line = fields.Many2One('account.invoice.line', 'Invoice Line',
+        required=True, select=True, ondelete='CASCADE')
+
+
+class GuaranteeSaleLine(ModelSQL):
+    'Guarantee - Sale Line'
+    __name__ = 'guarantee.guarantee-sale.line'
+    guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
+        required=True, select=True, ondelete='CASCADE')
+    sale_line = fields.Many2One('sale.line', 'Sale Line',
+        required=True, select=True, ondelete='CASCADE')
+
+
+class GuaranteeInvoiceLine(ModelSQL):
+    'Guarantee - Invoice Line'
+    __name__ = 'guarantee.guarantee-account.invoice.line'
+    guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
+        required=True, select=True, ondelete='CASCADE')
+    invoice_line = fields.Many2One('account.invoice.line', 'Invoice Line',
+        required=True, select=True, ondelete='CASCADE')
+
+
 class Guarantee(Workflow, ModelSQL, ModelView):
     'Guarantee'
     __name__ = 'guarantee.guarantee'
@@ -58,9 +94,11 @@ class Guarantee(Workflow, ModelSQL, ModelView):
     end_date = fields.Date('End Date', required=True)
     in_guarantee = fields.Function(fields.Boolean('In Guarantee'),
         'get_in_guarantee')
-    sale_line = fields.Many2One('sale.line', 'Sale Line', select=True)
-    invoice_line = fields.Many2One('account.invoice.line', 'Invoice Line',
-        select=True)
+    sale_lines = fields.Many2Many('guarantee.guarantee-sale.line', 'guarantee',
+        'sale_line', 'Sale Lines')
+    invoice_lines = fields.Many2Many(
+        'guarantee.guarantee-account.invoice.line', 'guarantee',
+        'invoice_line', 'Invoice Lines')
     guarantee_sale_lines = fields.One2Many('sale.line', 'guarantee',
         'Sale Lines in Guarantee')
     guarantee_invoice_lines = fields.One2Many('account.invoice.line',
@@ -288,7 +326,7 @@ class SaleLine:
         today = Date.today()
         guarantee.start_date = self.sale.sale_date or today
         guarantee.end_date = guarantee.on_change_with_end_date()
-        guarantee.sale_line = self
+        guarantee.sale_lines = [self]
         guarantee.state = 'draft'
         return guarantee
 
