@@ -115,7 +115,7 @@ class Guarantee(Workflow, ModelSQL, ModelView):
     def __setup__(cls):
         super(Guarantee, cls).__setup__()
         cls._error_messages.update({
-                'no_guarante_sequence': ('No guarantee sequence has been '
+                'no_guarantee_sequence': ('No guarantee sequence has been '
                     'defined. Please define one in guarantee configuration')
                 })
         cls._transitions |= set((
