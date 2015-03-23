@@ -7,4 +7,5 @@
     <field name="includes_consumables"/>
     <field name="includes_goods"/>
     <field name="includes_services"/>
+    <field name="active" tree_invisible="1"/>
 </tree>

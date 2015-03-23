@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!-- The COPYRIGHT file at the top level of this repository contains the full
      copyright notices and license terms. -->
-<form string="Guarantee Type">
+<form string="Guarantee Type" col="6">
     <label name="name"/>
     <field name="name"/>
     <label name="duration"/>
     <field name="duration"/>
-    <group id="includes" colspan="4" col="6">
-        <label name="includes_consumables"/>
-        <field name="includes_consumables"/>
-        <label name="includes_goods"/>
-        <field name="includes_goods"/>
-        <label name="includes_services"/>
-        <field name="includes_services"/>
-    </group>
+    <label name="active"/>
+    <field name="active"/>
+    <label name="includes_consumables"/>
+    <field name="includes_consumables"/>
+    <label name="includes_goods"/>
+    <field name="includes_goods"/>
+    <label name="includes_services"/>
+    <field name="includes_services"/>
 </form>

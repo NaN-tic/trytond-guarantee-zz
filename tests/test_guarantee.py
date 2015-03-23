@@ -158,6 +158,7 @@ class TestCase(unittest.TestCase):
             for data in tests:
                 with tx.set_context(company=company.id):
                     guarantee, = self.guarantee.create([{
+                                'state': 'active',
                                 'party': company.party.id,
                                 'document': str(data['product']),
                                 'type': data['guarantee_type'],
@@ -166,6 +167,19 @@ class TestCase(unittest.TestCase):
                                 }])
                 self.assertEqual(guarantee.applies_for_product(data['product'],
                         data['test_date']), data['result'])
+            # If guarantee is in _invalid_state it should return false
+            for state in self.guarantee._invalid_states:
+                with tx.set_context(company=company.id):
+                    guarantee, = self.guarantee.create([{
+                                'state': state,
+                                'party': company.party.id,
+                                'document': str(consumable_product),
+                                'type': consumable_guarantee,
+                                'start_date': today,
+                                'end_date': next_month,
+                                }])
+                self.assertEqual(guarantee.applies_for_product(
+                        consumable_product, tomorrow), False)
 
 
 def suite():

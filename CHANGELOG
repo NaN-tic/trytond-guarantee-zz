@@ -1,3 +1,5 @@
+* Guarantee should not be applied if it's on draft or cancel state
+* Add active field on guarantee type
 * Fix error message when no guarantee sequence is defined
 * Allow to relate a guarantee with multiple sale lines and invoice lines
 * Create a draft guarantee when selling a product with guarantee type

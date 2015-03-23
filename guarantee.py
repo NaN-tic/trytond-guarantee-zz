@@ -23,10 +23,15 @@ class GuaranteeType(ModelSQL, ModelView):
         'this waranty type will include goods products')
     includes_consumables = fields.Boolean('Include Consumables', help='If '
         'marked this waranty type will include consumable products')
+    active = fields.Boolean('Active')
 
     @staticmethod
     def default_duration():
         return 0
+
+    @staticmethod
+    def default_active():
+        return True
 
     def applies_for_product(self, product):
         if product.type == 'service':
@@ -62,30 +67,12 @@ class GuaranteeInvoiceLine(ModelSQL):
         required=True, select=True, ondelete='CASCADE')
 
 
-class GuaranteeSaleLine(ModelSQL):
-    'Guarantee - Sale Line'
-    __name__ = 'guarantee.guarantee-sale.line'
-    guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
-        required=True, select=True, ondelete='CASCADE')
-    sale_line = fields.Many2One('sale.line', 'Sale Line',
-        required=True, select=True, ondelete='CASCADE')
-
-
-class GuaranteeInvoiceLine(ModelSQL):
-    'Guarantee - Invoice Line'
-    __name__ = 'guarantee.guarantee-account.invoice.line'
-    guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
-        required=True, select=True, ondelete='CASCADE')
-    invoice_line = fields.Many2One('account.invoice.line', 'Invoice Line',
-        required=True, select=True, ondelete='CASCADE')
-
-
 class Guarantee(Workflow, ModelSQL, ModelView):
     'Guarantee'
     __name__ = 'guarantee.guarantee'
     _rec_name = 'code'
 
-    code = fields.Integer('Code', readonly=True, required=True)
+    code = fields.Char('Code', readonly=True, required=True)
     party = fields.Many2One('party.party', 'Party', required=True)
     document = fields.Reference('Document', selection='get_origin',
         required=True, select=True)
@@ -114,6 +101,7 @@ class Guarantee(Workflow, ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Guarantee, cls).__setup__()
+        cls._invalid_states = ['draft', 'cancel']
         cls._error_messages.update({
                 'no_guarantee_sequence': ('No guarantee sequence has been '
                     'defined. Please define one in guarantee configuration')
@@ -177,6 +165,8 @@ class Guarantee(Workflow, ModelSQL, ModelView):
         '''Returns if the current waranty applies for the current product
         and date
         '''
+        if self.state in self._invalid_states:
+            return False
         if not self.applies_for_date(date):
             return False
         return self.type.applies_for_product(product)
