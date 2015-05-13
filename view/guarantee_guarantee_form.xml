@@ -31,14 +31,4 @@
             <field name="notes" colspan="4"/>
         </page>
     </notebook>
-    <group col="4" colspan="4" id="contract_buttons">
-        <label name="state" xalign="1.0" xexpand="1"/>
-        <field name="state" xalign="1.0" xexpand="0"/>
-        <group col="7" colspan="2" id="buttons">
-            <button name="cancel" string="Cancel" icon="tryton-cancel"/>
-            <button name="draft" string="Draft" icon="tryton-go-previous"/>
-            <button name="active" string="Active" icon="tryton-go-next"/>
-            <button name="finish" string="Finish" icon="tryton-ok"/>
-        </group>
-    </group>
 </form>

@@ -14,7 +14,6 @@ def register():
         Guarantee,
         GuaranteeSaleLine,
         GuaranteeInvoiceLine,
-        Sale,
         SaleLine,
         InvoiceLine,
         module='guarantee', type_='model')

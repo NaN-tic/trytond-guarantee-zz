@@ -1,3 +1,5 @@
+* Remove workflow on guarantee
+* Don't create automatically guarantees when confirming a sale
 * Guarantee should not be applied if it's on draft or cancel state
 * Add active field on guarantee type
 * Fix error message when no guarantee sequence is defined

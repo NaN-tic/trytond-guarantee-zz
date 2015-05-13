@@ -146,10 +146,6 @@ msgctxt "field:guarantee.guarantee,start_date:"
 msgid "Start Date"
 msgstr "Data inicial"
 
-msgctxt "field:guarantee.guarantee,state:"
-msgid "State"
-msgstr "Estat"
-
 msgctxt "field:guarantee.guarantee,type:"
 msgid "Type"
 msgstr "Tipus"
@@ -225,6 +221,10 @@ msgstr "Data modificación"
 msgctxt "field:guarantee.guarantee-sale.line,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
+
+msgctxt "field:guarantee.type,active:"
+msgid "Active"
+msgstr "Actiu"
 
 msgctxt "field:guarantee.type,create_date:"
 msgid "Create Date"
@@ -338,31 +338,6 @@ msgctxt "model:ir.action,name:act_guarantee_type"
 msgid "Guarantee Type"
 msgstr "Tipus de garantia"
 
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_active"
-msgid "Active"
-msgstr "Actiu"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_all"
-msgid "All"
-msgstr "Tots"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_cancel"
-msgid "Canceled"
-msgstr "Cancel·lat"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_draft"
-msgid "Draft"
-msgstr "Esborrany"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_hold"
-msgid "Finished"
-msgstr "Finalitzat"
-
 msgctxt "model:ir.sequence,name:sequence_guarantee"
 msgid "Guarantee"
 msgstr "Garantia"
@@ -399,41 +374,9 @@ msgctxt "model:res.group,name:group_guarantee_admin"
 msgid "Guarantee Administration"
 msgstr "Administració de garantia"
 
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Active"
-msgstr "Actiu"
-
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Canceled"
-msgstr "Cancel·lat"
-
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Draft"
-msgstr "Esborrany"
-
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Finished"
-msgstr "Finalitzat"
-
 msgctxt "view:guarantee.configuration:"
 msgid "Guarantee Configuration"
 msgstr "Configuració de garantia"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Active"
-msgstr "Activa"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Cancel"
-msgstr "Cancel·lat"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Draft"
-msgstr "Esborrany"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Finish"
-msgstr "Finalitza"
 
 msgctxt "view:guarantee.guarantee:"
 msgid "Guarantee"

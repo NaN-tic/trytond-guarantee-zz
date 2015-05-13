@@ -1,13 +1,14 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from dateutil.relativedelta import relativedelta
-from trytond.model import Workflow, ModelSQL, ModelView, fields
+from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
+from trytond import backend
 
 __all__ = ['GuaranteeType', 'Product', 'GuaranteeSaleLine',
-    'GuaranteeInvoiceLine', 'Guarantee', 'Sale', 'SaleLine', 'InvoiceLine']
+    'GuaranteeInvoiceLine', 'Guarantee', 'SaleLine', 'InvoiceLine']
 __metaclass__ = PoolMeta
 
 
@@ -67,7 +68,7 @@ class GuaranteeInvoiceLine(ModelSQL):
         required=True, select=True, ondelete='CASCADE')
 
 
-class Guarantee(Workflow, ModelSQL, ModelView):
+class Guarantee(ModelSQL, ModelView):
     'Guarantee'
     __name__ = 'guarantee.guarantee'
     _rec_name = 'code'
@@ -91,46 +92,25 @@ class Guarantee(Workflow, ModelSQL, ModelView):
     guarantee_invoice_lines = fields.One2Many('account.invoice.line',
         'guarantee', 'Invoice Lines in Guarantee')
     notes = fields.Text('Notes')
-    state = fields.Selection([
-            ('draft', 'Draft'),
-            ('active', 'Active'),
-            ('finished', 'Finished'),
-            ('cancel', 'Canceled'),
-        ], 'State', readonly=True, required=True)
 
     @classmethod
     def __setup__(cls):
         super(Guarantee, cls).__setup__()
-        cls._invalid_states = ['draft', 'cancel']
         cls._error_messages.update({
                 'no_guarantee_sequence': ('No guarantee sequence has been '
                     'defined. Please define one in guarantee configuration')
                 })
-        cls._transitions |= set((
-            ('draft', 'cancel'),
-            ('draft', 'active'),
-            ('active', 'cancel'),
-            ('active', 'finished'),
-            ('cancel', 'draft'),
-        ))
-        cls._buttons.update({
-            'cancel': {
-                'invisible': ~Eval('state').in_(['active', 'draft']),
-                },
-            'draft': {
-                'invisible': Eval('state') != 'cancel',
-                },
-            'active': {
-                'invisible': Eval('state') != 'draft',
-                },
-            'finish': {
-                'invisible': Eval('state') != 'active',
-                },
-        })
 
-    @staticmethod
-    def default_state():
-        return 'draft'
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+
+        super(Guarantee, cls).__register__(module_name)
+
+        # Migration from 3.4: drop required on state
+        table.not_null_action('state', action='remove')
 
     @classmethod
     def _get_origin(cls):
@@ -165,35 +145,9 @@ class Guarantee(Workflow, ModelSQL, ModelView):
         '''Returns if the current waranty applies for the current product
         and date
         '''
-        if self.state in self._invalid_states:
-            return False
         if not self.applies_for_date(date):
             return False
         return self.type.applies_for_product(product)
-
-    @classmethod
-    @ModelView.button
-    @Workflow.transition('draft')
-    def draft(cls, guarantees):
-        pass
-
-    @classmethod
-    @ModelView.button
-    @Workflow.transition('active')
-    def active(cls, guarantees):
-        pass
-
-    @classmethod
-    @ModelView.button
-    @Workflow.transition('finished')
-    def finish(cls, guarantees):
-        pass
-
-    @classmethod
-    @ModelView.button
-    @Workflow.transition('cancel')
-    def cancel(cls, guarantees):
-        pass
 
     @classmethod
     def create(cls, vlist):
@@ -206,26 +160,9 @@ class Guarantee(Workflow, ModelSQL, ModelView):
             cls.raise_user_error('no_guarantee_sequence')
         vlist = [x.copy() for x in vlist]
         for vals in vlist:
-            vals['code'] = Sequence.get_id(sequence.id)
+            if 'code' not in vals:
+                vals['code'] = Sequence.get_id(sequence.id)
         return super(Guarantee, cls).create(vlist)
-
-
-class Sale:
-    __name__ = 'sale.sale'
-
-    @classmethod
-    def confirm(cls, sales):
-        pool = Pool()
-        Guarantee = pool.get('guarantee.guarantee')
-        super(Sale, cls).confirm(sales)
-        to_create = []
-        for sale in sales:
-            for line in sale.lines:
-                    guarantee = line.get_guarantee()
-                    if guarantee:
-                        to_create.append(guarantee._save_values)
-        if to_create:
-            Guarantee.create(to_create)
 
 
 class SaleLine:
@@ -317,7 +254,6 @@ class SaleLine:
         guarantee.start_date = self.sale.sale_date or today
         guarantee.end_date = guarantee.on_change_with_end_date()
         guarantee.sale_lines = [self]
-        guarantee.state = 'draft'
         return guarantee
 
 

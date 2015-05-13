@@ -150,10 +150,6 @@ msgctxt "field:guarantee.guarantee,start_date:"
 msgid "Start Date"
 msgstr "Fecha inicio"
 
-msgctxt "field:guarantee.guarantee,state:"
-msgid "State"
-msgstr "Estado"
-
 msgctxt "field:guarantee.guarantee,type:"
 msgid "Type"
 msgstr "Tipo"
@@ -229,6 +225,10 @@ msgstr "Fecha modificación"
 msgctxt "field:guarantee.guarantee-sale.line,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
+
+msgctxt "field:guarantee.type,active:"
+msgid "Active"
+msgstr "Activo"
 
 msgctxt "field:guarantee.type,create_date:"
 msgid "Create Date"
@@ -344,31 +344,6 @@ msgctxt "model:ir.action,name:act_guarantee_type"
 msgid "Guarantee Type"
 msgstr "Tipo de garantía"
 
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_active"
-msgid "Active"
-msgstr "Activo"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_all"
-msgid "All"
-msgstr "Todos"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_cancel"
-msgid "Canceled"
-msgstr "Cancelado"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_draft"
-msgid "Draft"
-msgstr "Borrador"
-
-msgctxt ""
-"model:ir.action.act_window.domain,name:act_guarantee_guarantee_domain_hold"
-msgid "Finished"
-msgstr "Finalizado"
-
 msgctxt "model:ir.sequence,name:sequence_guarantee"
 msgid "Guarantee"
 msgstr "Garantía"
@@ -405,41 +380,9 @@ msgctxt "model:res.group,name:group_guarantee_admin"
 msgid "Guarantee Administration"
 msgstr "Administración de garantía"
 
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Active"
-msgstr "Activo"
-
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Canceled"
-msgstr "Cancelado"
-
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Draft"
-msgstr "Borrador"
-
-msgctxt "selection:guarantee.guarantee,state:"
-msgid "Finished"
-msgstr "Finalizado"
-
 msgctxt "view:guarantee.configuration:"
 msgid "Guarantee Configuration"
 msgstr "Configuración de garantía"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Active"
-msgstr "Activar"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Draft"
-msgstr "Borrador"
-
-msgctxt "view:guarantee.guarantee:"
-msgid "Finish"
-msgstr "Finalizar"
 
 msgctxt "view:guarantee.guarantee:"
 msgid "Guarantee"
