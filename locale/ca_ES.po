@@ -112,7 +112,7 @@ msgstr "Línies de factura en garantia"
 
 msgctxt "field:guarantee.guarantee,guarantee_sale_lines:"
 msgid "Sale Lines in Guarantee"
-msgstr "Línie de venda en garantia"
+msgstr "Línies de venda en garantia"
 
 msgctxt "field:guarantee.guarantee,id:"
 msgid "ID"
