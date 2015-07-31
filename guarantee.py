@@ -309,14 +309,3 @@ class InvoiceLine:
         if self.on_change_with_line_in_guarantee():
             changes.update({'unit_price': 0, 'gross_unit_price': 0})
         return changes
-
-    @classmethod
-    def validate(cls, lines):
-        super(InvoiceLine, cls).validate(lines)
-        for line in lines:
-            line.check_guarantee()
-
-    def check_guarantee(self):
-        if self.line_in_guarantee and self.unit_price != 0.0:
-            self.raise_user_error('guarantee_nonzero_unit_price',
-                self.rec_name)
