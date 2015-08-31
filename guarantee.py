@@ -204,24 +204,23 @@ class SaleLine:
 
     @fields.depends(methods=['quantity'])
     def on_change_guarantee(self):
-        return self.on_change_quantity()
+        self.on_change_quantity()
 
     @fields.depends(methods=['quantity'])
     def on_change_product(self):
-        changes = super(SaleLine, self).on_change_product()
-        changes.update(self.on_change_guarantee())
-        return changes
+        super(SaleLine, self).on_change_product()
+        self.on_change_quantity()
 
     @fields.depends('sale', '_parent_sale.sale_date', 'guarantee', 'product')
     def on_change_quantity(self):
-        changes = super(SaleLine, self).on_change_quantity()
+        super(SaleLine, self).on_change_quantity()
         if self.on_change_with_line_in_guarantee():
-            changes.update({'unit_price': 0, 'gross_unit_price': 0})
-        return changes
+            self.unit_price = 0
+            self.gross_unit_price = 0
 
     @fields.depends(methods=['line_in_guarantee'])
     def on_change_with_amount(self):
-        return super(SaleLine, self).on_change_with_amount()
+        super(SaleLine, self).on_change_with_amount()
 
     @classmethod
     def validate(cls, lines):
@@ -300,12 +299,12 @@ class InvoiceLine:
 
     @fields.depends(methods=['product'])
     def on_change_guarantee(self):
-        return self.on_change_product()
+        self.on_change_product()
 
     @fields.depends('invoice', '_parent_invoice.invoice_date', 'guarantee',
         'origin')
     def on_change_product(self):
-        changes = super(InvoiceLine, self).on_change_product()
+        super(InvoiceLine, self).on_change_product()
         if self.on_change_with_line_in_guarantee():
-            changes.update({'unit_price': 0, 'gross_unit_price': 0})
-        return changes
+            self.unit_price = 0
+            self.gross_unit_price = 0
