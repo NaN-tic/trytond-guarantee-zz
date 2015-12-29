@@ -220,7 +220,7 @@ class SaleLine:
 
     @fields.depends(methods=['line_in_guarantee'])
     def on_change_with_amount(self):
-        super(SaleLine, self).on_change_with_amount()
+        return super(SaleLine, self).on_change_with_amount()
 
     @classmethod
     def validate(cls, lines):
