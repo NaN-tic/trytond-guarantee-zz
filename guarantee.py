@@ -9,7 +9,6 @@ from trytond import backend
 
 __all__ = ['GuaranteeType', 'Product', 'GuaranteeSaleLine',
     'GuaranteeInvoiceLine', 'Guarantee', 'SaleLine', 'InvoiceLine']
-__metaclass__ = PoolMeta
 
 
 class GuaranteeType(ModelSQL, ModelView):
@@ -46,6 +45,7 @@ class GuaranteeType(ModelSQL, ModelView):
 
 
 class Product:
+    __metaclass__ = PoolMeta
     __name__ = 'product.product'
     guarantee_type = fields.Many2One('guarantee.type', 'Guarante Type')
 
@@ -165,6 +165,7 @@ class Guarantee(ModelSQL, ModelView):
 
 
 class SaleLine:
+    __metaclass__ = PoolMeta
     __name__ = 'sale.line'
     guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
         ondelete='RESTRICT',
@@ -256,6 +257,7 @@ class SaleLine:
 
 
 class InvoiceLine:
+    __metaclass__ = PoolMeta
     __name__ = 'account.invoice.line'
     guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
         ondelete='RESTRICT',

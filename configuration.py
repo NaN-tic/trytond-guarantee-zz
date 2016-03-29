@@ -1,11 +1,10 @@
 #The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
 from trytond.model import Model, ModelSingleton, ModelSQL, ModelView, fields
-from trytond.pool import Pool, PoolMeta
+from trytond.pool import Pool
 from trytond.transaction import Transaction
 
 __all__ = ['Configuration', 'ConfigurationCompany']
-__metaclass__ = PoolMeta
 
 
 class Configuration(ModelSingleton, ModelSQL, ModelView):
