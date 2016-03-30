@@ -233,8 +233,8 @@ class SaleLine:
             self.raise_user_error('guarantee_nonzero_unit_price',
                 self.rec_name)
 
-    def get_invoice_line(self, invoice_type):
-        lines = super(SaleLine, self).get_invoice_line(invoice_type)
+    def get_invoice_line(self):
+        lines = super(SaleLine, self).get_invoice_line()
         for line in lines:
             line.guarantee = self.guarantee
         return lines
