@@ -206,7 +206,7 @@ class SaleLine:
 
     @fields.depends(methods=['quantity'])
     def on_change_guarantee(self):
-        return self.on_change_quantity()
+        self.on_change_quantity()
 
     @fields.depends(methods=['quantity'])
     def on_change_product(self):
