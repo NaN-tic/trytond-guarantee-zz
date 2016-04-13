@@ -209,7 +209,7 @@ class SaleLine:
     @fields.depends(methods=['quantity'])
     def on_change_product(self):
         super(SaleLine, self).on_change_product()
-        self.on_change_quantity()
+        self.on_change_guarantee()
 
     @fields.depends('sale', '_parent_sale.sale_date', 'guarantee', 'product')
     def on_change_quantity(self):
