@@ -9,7 +9,6 @@ from trytond import backend
 
 __all__ = ['GuaranteeType', 'Product', 'GuaranteeSaleLine',
     'GuaranteeInvoiceLine', 'Guarantee', 'SaleLine', 'InvoiceLine']
-__metaclass__ = PoolMeta
 
 
 class GuaranteeType(ModelSQL, ModelView):
@@ -47,6 +46,8 @@ class GuaranteeType(ModelSQL, ModelView):
 
 class Product:
     __name__ = 'product.product'
+    __metaclass__ = PoolMeta
+
     guarantee_type = fields.Many2One('guarantee.type', 'Guarante Type')
 
 
@@ -104,8 +105,7 @@ class Guarantee(ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         TableHandler = backend.get('TableHandler')
-        cursor = Transaction().cursor
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
 
         super(Guarantee, cls).__register__(module_name)
 
@@ -167,6 +167,8 @@ class Guarantee(ModelSQL, ModelView):
 
 class SaleLine:
     __name__ = 'sale.line'
+    __metaclass__ = PoolMeta
+
     guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
         ondelete='RESTRICT',
         domain=[
@@ -208,16 +210,15 @@ class SaleLine:
 
     @fields.depends(methods=['quantity'])
     def on_change_product(self):
-        changes = super(SaleLine, self).on_change_product()
-        changes.update(self.on_change_guarantee())
-        return changes
+        super(SaleLine, self).on_change_product()
+        self.on_change_guarantee()
 
     @fields.depends('sale', '_parent_sale.sale_date', 'guarantee', 'product')
     def on_change_quantity(self):
-        changes = super(SaleLine, self).on_change_quantity()
+        super(SaleLine, self).on_change_quantity()
         if self.on_change_with_line_in_guarantee():
-            changes.update({'unit_price': 0, 'gross_unit_price': 0})
-        return changes
+            self.unit_price = 0
+            self.gross_unit_price = 0
 
     @fields.depends(methods=['line_in_guarantee'])
     def on_change_with_amount(self):
@@ -259,6 +260,8 @@ class SaleLine:
 
 class InvoiceLine:
     __name__ = 'account.invoice.line'
+    __metaclass__ = PoolMeta
+
     guarantee = fields.Many2One('guarantee.guarantee', 'Guarantee',
         ondelete='RESTRICT',
         domain=[
@@ -300,12 +303,12 @@ class InvoiceLine:
 
     @fields.depends(methods=['product'])
     def on_change_guarantee(self):
-        return self.on_change_product()
+        self.on_change_product()
 
     @fields.depends('invoice', '_parent_invoice.invoice_date', 'guarantee',
         'origin')
     def on_change_product(self):
-        changes = super(InvoiceLine, self).on_change_product()
+        super(InvoiceLine, self).on_change_product()
         if self.on_change_with_line_in_guarantee():
-            changes.update({'unit_price': 0, 'gross_unit_price': 0})
-        return changes
+            self.unit_price = 0
+            self.gross_unit_price = 0

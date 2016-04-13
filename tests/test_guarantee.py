@@ -9,9 +9,14 @@ from trytond.tests.test_tryton import POOL, DB_NAME, USER, CONTEXT, test_view,\
     test_depends
 from trytond.transaction import Transaction
 
+from trytond.tests.test_tryton import ModuleTestCase
+from trytond.tests.test_tryton import (doctest_setup, doctest_teardown,
+    doctest_checker)
 
-class TestCase(unittest.TestCase):
+
+class TestCase(ModuleTestCase):
     'Test module'
+    module = 'guarantee'
 
     def setUp(self):
         trytond.tests.test_tryton.install_module('guarantee')
@@ -24,14 +29,6 @@ class TestCase(unittest.TestCase):
         self.template = POOL.get('product.template')
         self.uom = POOL.get('product.uom')
         self.user = POOL.get('res.user')
-
-    def test0005views(self):
-        'Test views'
-        test_view('guarantee')
-
-    def test0006depends(self):
-        'Test depends'
-        test_depends()
 
     def test0010_in_guarante(self):
         with Transaction().start(DB_NAME, USER, context=CONTEXT) as tx:
